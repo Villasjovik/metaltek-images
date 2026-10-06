@@ -457,7 +457,6 @@ background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:
 .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:52px;perspective:1800px;perspective-origin:50% 45%;max-width:760px;margin-left:auto;margin-right:auto}
 .price-grid.three{grid-template-columns:repeat(3,1fr);gap:22px;max-width:1120px}
 .price-grid.three>.pkg-col:nth-child(2){--pb-rot:calc(4deg * var(--pr-damp,1));animation-delay:-1.5s;animation-duration:15.9s}
-.price-ribbon.kamp{background:#b8472f;color:#f2ede4}
 @media(max-width:980px){.price-grid.three{grid-template-columns:minmax(0,1fr);perspective:none;max-width:none}.price-grid.three>.pkg-col,.price-grid.three>.pkg-col:first-child,.price-grid.three>.pkg-col:last-child{--pb-rot:0deg;--pb-base-y:0px;--pb-scale:1;transform:none!important}}
 
 /* === PKG-COL — wraps green handle (pkg-boost) + price-box as one tilted stack ===
@@ -482,25 +481,6 @@ background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:
 .price-grid>.pkg-col:not(.featured){--pb-scale:.9}
 .price-grid>.pkg-col.featured{--pb-scale:1;z-index:2}
 .pkg-col:hover{--pb-rot:0deg!important;--pb-hover:-8px}
-
-/* === MUTED REFERENCE PACKAGES — the two campaign packages, shown at rest ===
-   They are there so the full range of fees is visible, nothing else: inert (no tilt, no float,
-   no hover, no pointer events), desaturated and dropped back. All colour and all motion
-   belongs to the live card, so the eye lands there without a single word of selling. */
-.pkg-col.is-muted{--pb-rot:0deg!important;--pb-scale:.86;animation:none!important;pointer-events:none}
-.body-loaded .price-grid>.pkg-col.is-muted.rv:not(.in){--pb-rot:0deg!important}
-.body-loaded .price-grid>.pkg-col.is-muted.rv.in{opacity:.42}
-@media(prefers-reduced-motion:reduce){
-  .body-loaded .price-grid>.pkg-col.is-muted.rv{opacity:.42!important}
-}
-.pkg-col.is-muted .price-box{filter:grayscale(1);
-  border-color:rgba(242,237,228,.14);border-top-color:rgba(242,237,228,.2);
-  background:linear-gradient(145deg,rgba(242,237,228,.035) 0%,rgba(242,237,228,.012) 100%);
-  box-shadow:0 26px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04)}
-.pkg-col.is-muted .price-box::before{opacity:0}
-.pkg-col.is-muted .price-plate{transform:none;background:rgba(0,0,0,.2);border-color:rgba(242,237,228,.1)}
-.pkg-col.is-muted .price-title{margin-top:14px}
-.pkg-col.is-muted .pi:hover{transform:none}
 
 /* Three-zone signable document. NOTE: backdrop-filter + overflow:hidden removed —
    both flatten 3D and would kill the counter-rotated price plate. */
@@ -1102,81 +1082,76 @@ position:relative;overflow:hidden;transition:color .35s}
   <div class="pr-orb pr-orb-2" aria-hidden="true"></div>
   <div class="pr-inner">
     <p class="sec-lbl rv">Investment</p>
-    <h2 class="sec-h2 ws rv">One package to <em class="pi-reach">start with.</em></h2>
+    <h2 class="sec-h2 ws rv">Three ways to <em class="pi-reach">build your presence.</em></h2>
 
     <div class="price-grid three">
 
-      <!-- Image package — the only live package -->
-      <div class="pkg-col featured rv d1" data-pkg-col="content">
-        <div class="price-box featured rv" data-pkg-box="content">
-          <i class="pr-sheen" aria-hidden="true"></i>
+      <div class="pkg-col rv d1" data-pkg-col="content">
+        <div class="price-box rv" data-pkg-box="content">
           <i class="pr-bg" data-n="01" aria-hidden="true"></i>
-          <span class="price-ribbon">Recommended for Metaltek</span>
           <h3 class="price-title">Image Package</h3>
           <p class="price-sub">20 images &middot; permanent rights</p>
           <div class="price-plate">
-          <p class="price-total-lbl">Price</p>
-          <p class="price-total">1,200</p>
-          <span class="price-unit">EUR</span>
+            <p class="price-total-lbl">Price</p>
+            <p class="price-total">1,200</p>
+            <span class="price-unit">EUR</span>
           </div>
           <div class="price-includes">
-            <p class="pi hi"><span>20 images across product images, close-ups and lifestyle images at Villa Sjövik</span></p>
+            <p class="pi hi"><span>20 images across product images, close-ups and lifestyle images, photographed in a Swedish home at Villa Sjövik</span></p>
             <p class="pi hi"><span>Permanent media rights for your website, own channels and paid ads, with no time limit</span></p>
             <p class="pi hi"><span>All 20 images delivered to Metaltek as a reusable image library for your own communication</span></p>
             <p class="pi"><span>Suggested focus: your Premium oven, with Classico or other pieces you choose from the range</span></p>
             <p class="pi"><span>Styling, photography and editing included</span></p>
+            <p class="pi"><span>Image production for your own use, without publication in Villa Sjövik&#x27;s channels</span></p>
           </div>
         </div>
       </div>
 
-      <!-- Package 02 — muted reference, inert -->
-      <div class="pkg-col is-muted rv d2" aria-disabled="true" data-pkg-col="start">
-        <div class="price-box rv" data-pkg-box="start">
+      <div class="pkg-col featured rv d2" data-pkg-col="combined">
+        <div class="price-box featured rv" data-pkg-box="combined">
           <i class="pr-bg" data-n="02" aria-hidden="true"></i>
-          <span class="price-ribbon ribbon-muted">Full campaign</span>
-          <h3 class="price-title">Video Pack</h3>
-          <p class="price-sub">1 video &middot; 2 stories with CTA &middot; 10 lifestyle images</p>
+          <i class="pr-sheen" aria-hidden="true"></i>
+          <span class="price-ribbon">Best value &middot; Recommended</span>
+          <h3 class="price-title">Images + Website</h3>
+          <p class="price-sub">20 images &middot; website update &amp; security</p>
           <div class="price-plate">
-          <p class="price-total-lbl">Price</p>
-          <p class="price-total" data-base="1850" data-boost="1850">1,850</p>
-          <span class="price-unit">EUR</span>
+            <p class="price-total-lbl">Price</p>
+            <p class="price-total">1,800</p>
+            <span class="price-unit">EUR</span>
           </div>
           <div class="price-includes">
-            <p class="pi hi"><span>1 video published in Villa Sjövik's channels <em class="pi-reach">for 197,000 followers</em></span></p>
-            <p class="pi hi"><span>2 stories with direct link and CTA</span></p>
-            <p class="pi hi"><span>10 lifestyle images in an authentic home setting</span></p>
-            <p class="pi"><span>Permanent usage rights to all delivered material</span></p>
-            <p class="pi"><span>Concept and schedule approved with Metaltek; styling, filming and editing included</span></p>
+            <p class="pi hi"><span>Everything in the Image Package and Website Package</span></p>
+            <p class="pi hi"><span>20 product images, close-ups and lifestyle images, photographed in a Swedish home at Villa Sjövik</span></p>
+            <p class="pi hi"><span>Permanent media rights for your website, own channels and paid ads, with no time limit</span></p>
+            <p class="pi"><span>Styling, photography and editing included</span></p>
+            <p class="pi"><span>Your website updated and secured</span></p>
+            <p class="pi"><span>The hack resolved so visitors see your real website again</span></p>
+            <p class="pi"><span>Image production for your own use, without publication in Villa Sjövik&#x27;s channels</span></p>
           </div>
         </div>
       </div>
 
-      <!-- Package 03 — muted reference, inert -->
-      <div class="pkg-col is-muted rv d3" aria-disabled="true" data-pkg-col="season">
-        <div class="price-box rv" data-pkg-box="season">
+      <div class="pkg-col rv d3" data-pkg-col="website">
+        <div class="price-box rv" data-pkg-box="website">
           <i class="pr-bg" data-n="03" aria-hidden="true"></i>
-          <span class="price-ribbon ribbon-muted">Full campaign</span>
-          <h3 class="price-title">Campaign Package</h3>
-          <p class="price-sub">3 videos &middot; 6 stories with CTA &middot; 60 lifestyle images</p>
+          <h3 class="price-title">Website Package</h3>
+          <p class="price-sub">Website update &amp; security</p>
           <div class="price-plate">
-          <p class="price-total-lbl">Price</p>
-          <p class="price-orig" data-base="reg. €5,550" data-boost="reg. €5,550">reg. €5,550</p>
-          <p class="price-total" data-base="3500" data-boost="3500">3,500</p>
-          <span class="price-unit">EUR</span>
+            <p class="price-total-lbl">Price</p>
+            <p class="price-total">1,000</p>
+            <span class="price-unit">EUR</span>
           </div>
           <div class="price-includes">
-            <p class="pi hi"><span>3 videos published in Villa Sjövik's channels <em class="pi-reach">for 197,000 followers</em></span></p>
-            <p class="pi hi"><span>6 stories with direct link and CTA</span></p>
-            <p class="pi hi"><span>60 lifestyle images in an authentic home setting</span></p>
-            <p class="pi"><span>Permanent usage rights to all delivered material</span></p>
-            <p class="pi"><span>Concept and schedule approved with Metaltek; styling, filming and editing included</span></p>
+            <p class="pi hi"><span>Your website updated</span></p>
+            <p class="pi hi"><span>Your website secured</span></p>
+            <p class="pi hi"><span>The hack resolved so visitors see your real website again</span></p>
           </div>
         </div>
       </div>
 
     </div>
 
-    <p class="price-note rv">Products are sent to Villa Sjövik and stay in the home after the production.</p>
+    <p class="price-note rv">For image production, products are sent to Villa Sjövik and stay in the home after the production.</p>
 
   </div>
 </section>
@@ -1196,7 +1171,7 @@ position:relative;overflow:hidden;transition:color .35s}
     <!-- hierarchy inversion: the meeting is the primary action — filled gold, visually first (flex order; DOM order = base for the copy-freeze) -->
     <div class="cta-btns rv">
       <div class="mag-w mag-mail">
-        <a class="mag-btn ghost ch" href="mailto:kontakt@villasjovik.se?subject=Metaltek%20%C3%97%20Villa%20Sj%C3%B6vik%3A%20Image%20package%202026">
+        <a class="mag-btn ghost ch" href="mailto:kontakt@villasjovik.se?subject=Metaltek%20%C3%97%20Villa%20Sj%C3%B6vik%3A%20Collaboration%20proposal%202026">
           <span>Send email &rarr;</span>
         </a>
       </div>
@@ -2123,13 +2098,13 @@ document.querySelectorAll('.gc,.lc,.sp-c').forEach(card=>{
       _subject:`New meeting booking: ${document.getElementById('bk-name').value.trim()} (Metaltek)`,
       _template:'table',
       _captcha:'false',
-      Meeting:'Video meeting via Metaltek image package',
+      Meeting:'Video meeting via Metaltek collaboration proposal',
       Date:dateStr,
       Time:state.selTime,
       Name:document.getElementById('bk-name').value.trim(),
       Email:document.getElementById('bk-email').value.trim(),
       Message:document.getElementById('bk-msg').value.trim()||'No message',
-      Source:'Metaltek image package (villasjovik.github.io/metaltek-images)'
+      Source:'Metaltek collaboration proposal (villasjovik.github.io/metaltek-images)'
     };
 
     let sent=false;
@@ -2161,7 +2136,7 @@ Email: ${payload.Email}
 Message:
 ${payload.Message}
 
-Sent via the Metaltek image package`;
+Sent via the Metaltek collaboration proposal`;
       const mailto=`mailto:${RECIPIENT}?subject=${encodeURIComponent(payload._subject)}&body=${encodeURIComponent(body)}`;
       window.location.href=mailto;
       doneText.textContent='The request has opened in your email app. Send it there to confirm. A reply will arrive within 24 hours.';
